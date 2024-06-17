@@ -6,7 +6,7 @@ const NewsBoard = ({category}) => {
     const apiKey = process.env.REACT_APP_API_KEY;
 
     useEffect(()=>{
-      let url = `https://newsapi.org/v2/everything?q=india&apiKey=${apiKey}`;
+      let url = `https://newsapi.org/v2/everything?q=india&apiKey=${apiKey}`;      
       fetch(url).then(response=> response.json()).then(data=> setArticles(data.articles));
 
   },[])
