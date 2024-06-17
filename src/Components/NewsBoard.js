@@ -3,15 +3,16 @@ import NewsItem from './NewsItem';
 const NewsBoard = ({category}) => {
 
     const [articles,setArticles] = useState([]);
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     useEffect(()=>{
-      let url = `https://newsapi.org/v2/everything?q=india&apiKey=${process.env.REACT_APP_API_KEY}`;
+      let url = `https://newsapi.org/v2/everything?q=india&apiKey=${apiKey}`;
       fetch(url).then(response=> response.json()).then(data=> setArticles(data.articles));
 
   },[])
 
     useEffect(()=>{
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${process.env.REACT_APP_API_KEY}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=${apiKey}`;
         fetch(url).then(response=> response.json()).then(data=> setArticles(data.articles));
 
     },[category])
